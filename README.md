@@ -1,7 +1,6 @@
-# IOS AppDelegate.swift Editor
+# Action IOS Configurator
 
 <a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
-
 
 Use this action to configure a fresh iOS project created with the command `npx cap add ios`.
 
