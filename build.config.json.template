@@ -1,0 +1,20 @@
+{
+  "android": {
+    "projectDir": "android/",
+    "build.gradle": {},
+    "AndroidManifest.xml": {}
+  },
+  "ios": {
+    "projectDir": "ios/",
+    "Info.plist": {
+      "CFBundleShortVersionString": "1.0",
+      "CFBundleVersion": 1,
+      "ITSAppUsesNonExemptEncryption": false,
+      "NSLocationWhenInUseUsageDescription": "Write description here",
+      "NSCameraUsageDescription": "Write description here",
+      "NSPhotoLibraryAddUsageDescription":"Write description here",
+      "NSPhotoLibraryUsageDescription": "Write description here",
+      "LSApplicationQueriesSchemes": ["mailto"]
+    }
+  }
+}

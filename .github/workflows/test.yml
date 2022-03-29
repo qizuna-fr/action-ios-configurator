@@ -1,0 +1,31 @@
+name: 'build-test'
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'releases/*'
+
+jobs:
+  build: # make sure build/ci work properly
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          npm install
+      - run: |
+          npm run all
+  test: # make sure the action works on a clean machine without building
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          jq '
+          .ios["Info.plist"].CFBundleShortVersionString = "9.9.9" |
+          .ios["Info.plist"].CFBundleVersion = "9"
+          ' ./build.config.json.template > build.config.json
+      - run: cp ios/App/App.xcodeproj/project.pbxproj.sample ios/App/App.xcodeproj/project.pbxproj
+      - run: cp ios/App/App/AppDelegate.swift.sample ios/App/App/AppDelegate.swift
+      - run: cp ios/App/App/Info.plist.sample ios/App/App/Info.plist
+      - run: cp ios/App/Podfile.sample ios/App/Podfile
+      - uses: ./
