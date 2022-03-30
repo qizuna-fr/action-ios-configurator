@@ -529,24 +529,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.mergeEntries = void 0;
 const fs = __importStar(__nccwpck_require__(7147));
 const plist = __importStar(__nccwpck_require__(1933));
 function mergeEntries(filename, options) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const json = fs.existsSync(filename) ? JSON.parse(JSON.stringify(plist.parse(fs.readFileSync(filename, 'utf8')))) : {};
-        fs.writeFileSync(filename, plist.build(Object.assign(Object.assign({}, json), options)));
-    });
+    const json = fs.existsSync(filename) ? JSON.parse(JSON.stringify(plist.parse(fs.readFileSync(filename, 'utf8')))) : {};
+    fs.writeFileSync(filename, plist.build(Object.assign(Object.assign({}, json), options)));
 }
 exports.mergeEntries = mergeEntries;
 
@@ -659,7 +648,7 @@ function setOptions() {
     return __awaiter(this, void 0, void 0, function* () {
         const c = (0, config_1.default)();
         const filename = path.join(c.rootDir, c.ios.projectDir, 'App', 'App', 'Info.plist');
-        plist.mergeEntries(filename, (0, config_1.default)().ios['Info.plist']);
+        plist.mergeEntries(filename, c.ios['Info.plist']);
     });
 }
 exports.setOptions = setOptions;
