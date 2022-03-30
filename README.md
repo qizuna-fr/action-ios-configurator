@@ -1,12 +1,12 @@
-# Action IOS Configurator
+# IOS Configurator
 
-<a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
+<a href="https://github.com/qizuna-fr/action-ios-configurator/actions"><img alt="action-ios-configurator status" src="https://github.com/qizuna-fr/action-ios-configurator/workflows/build-test/badge.svg"></a>
 
 Use this action to configure a fresh iOS project created with the command `npx cap add ios`.
 
 This action will do the following changes :
 
-- Set the options in the Info.plist (app version, build version, permissions, ...).
+- Set the options in the Info.plist file (app version, build version, permissions, ...).
 - Add the "Push Notifications" capability.
 - Add and declare the "Firebase/messaging" pod.
 - Reference the `GoogleService-Info.plist` in the project.

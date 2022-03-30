@@ -7,9 +7,9 @@ import config from '../src/config'
 
 function resetFile(filename: string): string {
   if (fs.existsSync(filename)) {
-    fs.unlinkSync(filename)
+    fs.rmSync(filename)
   }
-  fs.copyFileSync(`${filename}.sample`, filename)
+  fs.cpSync(`${filename}.sample`, filename)
   return filename
 }
 
@@ -63,7 +63,7 @@ describe('Run the main script', () => {
 
   const c = config()
   const np = process.execPath
-  const ip = path.join(__dirname, '..', 'lib', 'main.js')
+  const ip = path.join(c.rootDir, 'lib', 'main.js')
   const options: cp.ExecFileSyncOptions = {
     env: process.env
   }
